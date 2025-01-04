@@ -1,7 +1,7 @@
-# Documentation builds
+# documentation builds
 docs/_site
 docs/api
-
+node_modules
 # Secrets and environment variables
 *.env
 db_password.conf

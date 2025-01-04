@@ -1,11 +1,13 @@
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import * as dotenv from 'dotenv';
 
 const PORT_MIN = 1;
 const PORT_MAX = 65535;
 
 async function bootstrap() {
+  dotenv.config();
   const app = await NestFactory.create(AppModule);
 
   // Graceful shutdown
@@ -44,4 +46,5 @@ async function bootstrap() {
   }
   await app.listen(port);
 }
+
 bootstrap();

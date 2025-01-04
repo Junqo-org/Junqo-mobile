@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UsersModule } from './users/users.module';
+import { ChatGptApiModule } from './chat-gpt-api/chat-gpt-api.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import * as path from 'path';
 import * as fs from 'fs';
@@ -48,6 +49,7 @@ function getDbPassword(): string {
 @Module({
   imports: [
     UsersModule,
+    ChatGptApiModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: process.env.DATABASE_HOST || 'localhost',
